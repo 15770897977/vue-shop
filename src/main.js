@@ -1,8 +1,18 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './assets/css/global.css'
+// 注意点 : iconfont的样式要放在element的 前面
+import './assets/iconfont/iconfont.css'
+// 引入饿了么ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+// axiso 的设置
+import axios from 'axios'
+Vue.use(ElementUI)
+axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
