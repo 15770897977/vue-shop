@@ -61,7 +61,7 @@ export default {
         if (!valid) return
         // 从服务器返回的数据中结构 出 data , 并将它重命名为res
         const {data: res} = await this.$http.post('login', this.loginForm)
-        console.log(res)
+        // console.log(res)
         if (res.meta.status !== 200) return this.$message.error('登录失败!')
         this.$message.success('登录成功!')
         // 将登录成功的token 保存到 sessionStroage中

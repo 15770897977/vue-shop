@@ -44,3 +44,10 @@ em{
 .fr{
   float:right;
 }
+
+.el-breadcrumb {
+  margin-bottom: 20px;
+}
+.el-table {
+  margin-top: 10px;
+}
