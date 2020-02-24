@@ -12,6 +12,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 Vue.use(ElementUI)
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 请求拦截器
+axios.interceptors.request.use(config => {
+  // 处理请求之前的配置
+  // console.log(config)
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
