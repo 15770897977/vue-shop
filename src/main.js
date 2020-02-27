@@ -8,6 +8,9 @@ import './assets/iconfont/iconfont.css'
 // 引入饿了么ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// vue-table-with-tree-grid的引用
+import TreeTable from 'vue-table-with-tree-grid'
+
 // axiso 的设置
 import axios from 'axios'
 Vue.use(ElementUI)
@@ -22,6 +25,8 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
+// vue-table-with-tree-grid的注册
+Vue.component('tree-table', TreeTable)
 
 /* eslint-disable no-new */
 new Vue({

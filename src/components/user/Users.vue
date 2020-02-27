@@ -113,7 +113,7 @@
     </el-dialog>
     <!-- 分配角色的对话框 -->
     <el-dialog @close="setRoleDialogClosed" title="分配角色" :visible.sync="setRoleDialogVisible" width="50%">
-      
+
       <div>
         <p>当前的用户 : {{userInfo.username}}</p>
         <p>当前的角色: {{userInfo.role_name}}</p>
@@ -324,7 +324,7 @@ export default {
     async setRole (userInfo) {
       this.userInfo = userInfo
       const {data: res} = await this.$http.get('roles')
-      if(res.meta.status!==200) {
+      if (res.meta.status !== 200) {
         return this.$message.error('获取角色列表失败')
       }
       this.rolesList = res.data
@@ -332,12 +332,12 @@ export default {
     },
     // 点击按钮 , 分配角色
     async saveRolesInfo () {
-      if(!this.selectedRoleId) {
+      if (!this.selectedRoleId) {
         return this.$message.error('请想选择要分配的角色')
       }
 
-      const {data: res} = await this.$http.put(`users/${this.userInfo.id}/role`,{rid: this.selectedRoleId})
-      if(res.meta.status!==200){
+      const {data: res} = await this.$http.put(`users/${this.userInfo.id}/role`, {rid: this.selectedRoleId})
+      if (res.meta.status !== 200) {
         this.$message.error('更新角色失败')
       }
       this.$message.success('更新角色成功!')
@@ -345,7 +345,7 @@ export default {
       this.setRoleDialogVisible = false
     },
     // 监听分配角色对话框的关闭事件
-    setRoleDialogClosed() {
+    setRoleDialogClosed () {
       this.selectedRoleId = ''
       this.userInfo = {}
     }
