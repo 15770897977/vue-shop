@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "clone-deep": "^4.0.1",
     "element-ui": "^2.13.0",
     "vue": "^2.5.2",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
     "vue-table-with-tree-grid": "^0.2.4"
   },

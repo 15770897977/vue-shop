@@ -53,3 +53,7 @@ em{
 .el-table {
   margin-top: 10px;
 }
+/* 设置富文本编辑器的最小高度 */
+.ql-editor {
+  min-height: 300px;
+}
