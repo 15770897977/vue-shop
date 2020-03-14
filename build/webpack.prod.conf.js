@@ -35,12 +35,17 @@ const webpackConfig = merge(baseWebpackConfig, {
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
-          warnings: false
+          warnings: false,
+        // 打包后 log 就不会出现了
+          drop_debugger: true,
+          drop_console: true,
+          pure_funcs: ['console.log']
         }
       },
       sourceMap: config.build.productionSourceMap,
       parallel: true
     }),
+
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css'),

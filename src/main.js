@@ -17,7 +17,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // vue-table-with-tree-grid的引用
 import TreeTable from 'vue-table-with-tree-grid'
-
+// 引入进度条
+import Nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 // axiso 的设置
 import axios from 'axios'
 Vue.use(ElementUI)
@@ -25,9 +27,15 @@ Vue.use(VueQuillEditor)
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // 请求拦截器
 axios.interceptors.request.use(config => {
+  Nprogress.start()
   // 处理请求之前的配置
   // console.log(config)
   config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+// 响应拦截器
+axios.interceptors.response.use(config => {
+  Nprogress.done()
   return config
 })
 Vue.prototype.$http = axios
